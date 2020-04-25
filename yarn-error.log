@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js add csvParse
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add @types/convert-csv-to-json --dev
 
 PATH: 
   /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/miguel/Documentos/Android/Sdk/emulator:/home/miguel/Documentos/Android/Sdk/tools:/home/miguel/Documentos/Android/Sdk/tools/bin:/home/miguel/Documentos/Android/Sdk/platform-tools:/home/miguel/Documentos/Android/Sdk/emulator:/home/miguel/Documentos/Android/Sdk/tools:/home/miguel/Documentos/Android/Sdk/tools/bin:/home/miguel/Documentos/Android/Sdk/platform-tools
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/csvParse: Not found
+  Error: https://registry.yarnpkg.com/@types%2fconvert-csv-to-json: Not found
       at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:66987:18)
       at Request.self.callback (/usr/share/yarn/lib/cli.js:140748:22)
       at Request.emit (events.js:310:20)
@@ -42,7 +42,8 @@ npm manifest:
     "dependencies": {
       "@types/csv-parse": "^1.2.2",
       "@types/node": "^13.13.2",
-      "csv-parse": "^4.8.8",
+      "convert-csv-to-json": "^0.0.15",
+      "csv-parse": "^4.8.9",
       "dotenv": "^8.2.0",
       "express": "^4.17.1",
       "express-async-errors": "^3.1.1",
@@ -1453,6 +1454,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/content-type/-/content-type-1.0.4.tgz#e138cc75e040c727b1966fe5e5f8c9aee256fe3b"
     integrity sha512-hIP3EEPs8tB9AT1L+NUqtwOAps4mk2Zob89MWXMHjHWg9milF/j4osnnQLXBCBFBk/tvIG/tUc9mOUJiPBhPXA==
   
+  convert-csv-to-json@^0.0.15:
+    version "0.0.15"
+    resolved "https://registry.yarnpkg.com/convert-csv-to-json/-/convert-csv-to-json-0.0.15.tgz#f0ac35129b61d857cb370e4eaf2abd4779c2c15a"
+    integrity sha512-mXpZWoSc3RXWuA50GAx/BAj+7GIWLmYCr2/IoW9L+cwwvRt6TkTY+15emUyeNInyfl5uZf+H6sQQkpKhjwJB0w==
+  
   convert-source-map@^1.4.0, convert-source-map@^1.6.0, convert-source-map@^1.7.0:
     version "1.7.0"
     resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-1.7.0.tgz#17a2cb882d7f77d3490585e2ce6c524424a3a442"
@@ -1529,10 +1535,15 @@ Lockfile:
     dependencies:
       cssom "~0.3.6"
   
-  csv-parse@*, csv-parse@^4.8.8:
+  csv-parse@*:
     version "4.8.8"
     resolved "https://registry.yarnpkg.com/csv-parse/-/csv-parse-4.8.8.tgz#0acbc4598c1f28652c4250599108096b3a0a68ae"
     integrity sha512-Kv3Ilz2GV58dOoHBXRCTF8ijxlLjl80bG3d67XPI6DNqffb3AnbPbKr/WvCUMJq5V0AZYi6sukOaOQAVpfuVbg==
+  
+  csv-parse@^4.8.9:
+    version "4.8.9"
+    resolved "https://registry.yarnpkg.com/csv-parse/-/csv-parse-4.8.9.tgz#0d3f0973f415677b01d17abaa221fbffc6125760"
+    integrity sha512-uDxIDIDLb89gxqixSgGqDj3EA5A8D0pgUeyp9Qut8u+eCIC8IXkTtaxJEnnWDb6N2HqBY64suSlcOGg5ZBtsAQ==
   
   currently-unhandled@^0.4.1:
     version "0.4.1"

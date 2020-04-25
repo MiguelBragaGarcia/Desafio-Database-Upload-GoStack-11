@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getCustomRepository } from 'typeorm';
+import { getCustomRepository, TransactionRepository } from 'typeorm';
 import multer from 'multer';
 
 import multerConfig from '../config/multerConfig';
@@ -51,10 +51,14 @@ transactionsRouter.post(
   upload.single('transaction'),
   async (request, response) => {
     const importTransactionsService = new ImportTransactionsService();
+    const transactionRepository = getCustomRepository(TransactionsRepository);
+    const balance = await transactionRepository.getBalance();
 
-    const fileData = await importTransactionsService.execute(request.file.path);
+    const fileData = await importTransactionsService.execute({
+      csvFile: request.file.filename,
+    });
 
-    return response.json({ fileData });
+    return response.json({ transactions: fileData, balance });
   },
 );
 
