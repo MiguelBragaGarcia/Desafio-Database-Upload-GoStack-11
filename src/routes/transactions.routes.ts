@@ -48,17 +48,17 @@ transactionsRouter.delete('/:id', async (request, response) => {
 
 transactionsRouter.post(
   '/import',
-  upload.single('transaction'),
+  upload.single('file'),
   async (request, response) => {
     const importTransactionsService = new ImportTransactionsService();
     const transactionRepository = getCustomRepository(TransactionsRepository);
     const balance = await transactionRepository.getBalance();
 
-    const fileData = await importTransactionsService.execute({
-      csvFile: request.file.filename,
-    });
+    const importedTransactions = await importTransactionsService.execute(
+      request.file.path,
+    );
 
-    return response.json({ transactions: fileData, balance });
+    return response.json({ transactions: importedTransactions, balance });
   },
 );
 
