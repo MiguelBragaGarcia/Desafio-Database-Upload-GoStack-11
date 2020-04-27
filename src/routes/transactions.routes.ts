@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getCustomRepository, TransactionRepository } from 'typeorm';
+import { getCustomRepository } from 'typeorm';
 import multer from 'multer';
 
 import multerConfig from '../config/multerConfig';

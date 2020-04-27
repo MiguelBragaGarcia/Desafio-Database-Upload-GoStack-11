@@ -30,42 +30,24 @@ class CreateTransactionService {
     const categoryRepository = getRepository(Category);
     const transactionRepository = getRepository(Transaction);
 
-    const categoryExists = await categoryRepository.findOne({
+    let categoryExists = await categoryRepository.findOne({
       where: { title: category },
     });
 
-    // Se a categoria existir para evitar duplicação
-    if (categoryExists) {
-      const transaction = transactionRepository.create({
-        title,
-        value,
-        type,
-      });
-
-      transaction.category = categoryExists.id;
-
-      await transactionRepository.save(transaction);
-
-      return transaction;
+    if (!categoryExists) {
+      categoryExists = await categoryRepository.save({ title: category });
     }
 
-    const createdCategory = categoryRepository.create({
-      title: category,
-    });
-
-    const teste = await categoryRepository.save(createdCategory);
-
-    const createTransaction = transactionRepository.create({
+    const createTransaction = await transactionRepository.create({
       title,
       value,
       type,
+      category: categoryExists,
     });
 
-    createTransaction.category = teste.id;
+    const transaction = await transactionRepository.save(createTransaction);
 
-    await transactionRepository.save(createTransaction);
-
-    return createTransaction;
+    return transaction;
   }
 }
 
