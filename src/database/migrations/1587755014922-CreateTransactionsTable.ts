@@ -24,7 +24,9 @@ export default class CreateTransactionsTable1587755014922
 
           {
             name: 'value',
-            type: 'int',
+            type: 'decimal',
+            precision: 10,
+            scale: 2,
           },
 
           {
